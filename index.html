@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tulipa Restaurante — Cozinha Portuguesa em Loures</title>
+<meta name="description" content="Tulipa Restaurante, Loures. Comida feita com amor num salão vestido de flor a flor. Cozinha portuguesa, massas, petiscos na frigideira e sobremesas da casa.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Alex+Brush&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<style>
+  :root{
+    --cream:#FBF3E7;
+    --cream-2:#F3E6D3;
+    --cream-3:#EFDFC7;
+    --charcoal:#2B2018;
+    --charcoal-soft:#4A3B2E;
+    --amber:#C97B3D;
+    --amber-deep:#A15C28;
+    --gold:#B8923F;
+    --gold-light:#D4B571;
+    --coral:#C1443A;
+    --coral-soft:#DC7E68;
+    --forest:#33473A;
+    --forest-deep:#22302A;
+    --blush:#E7C9B8;
+    --line: rgba(43,32,24,.14);
+
+    --font-display:'Fraunces', serif;
+    --font-script:'Alex Brush', cursive;
+    --font-body:'Jost', sans-serif;
+
+    --container: 1180px;
+    --radius: 2px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--charcoal);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+
+  :focus-visible{outline:2.5px solid var(--gold); outline-offset:3px;}
+
+  .container{max-width:var(--container); margin:0 auto; padding:0 28px;}
+
+  .eyebrow{
+    font-family:var(--font-body);
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:.72rem;
+    font-weight:600;
+    color:var(--amber-deep);
+    display:inline-flex;
+    align-items:center;
+    gap:.6em;
+  }
+  .eyebrow::before{
+    content:'';
+    width:26px; height:1px;
+    background:var(--amber-deep);
+    display:inline-block;
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:600;
+    margin:0;
+    color:var(--charcoal);
+    letter-spacing:-.01em;
+  }
+
+  .section{padding:120px 0;}
+  @media(max-width:768px){ .section{padding:78px 0;} }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.6em;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:.86rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:16px 34px;
+    border:1.5px solid transparent;
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:all .25s ease;
+    white-space:nowrap;
+  }
+  .btn--solid{ background:var(--gold); color:var(--cream); border-color:var(--gold); }
+  .btn--solid:hover{ background:var(--gold-light); border-color:var(--gold-light); transform:translateY(-2px); }
+  .btn--ghost{ background:transparent; color:var(--cream); border-color:var(--gold-light); }
+  .btn--ghost:hover{ background:rgba(212,181,113,.15); border-color:var(--gold-light); transform:translateY(-2px); }
+  .btn--dark{ background:var(--charcoal); color:var(--cream); border-color:var(--charcoal); }
+  .btn--dark:hover{ background:var(--forest); border-color:var(--forest); transform:translateY(-2px);}
+
+  /* ---------- Photo placeholder component ---------- */
+  .ph{
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 22% 28%, rgba(255,255,255,.16), transparent 45%),
+      linear-gradient(155deg, var(--ph-a, #C97B3D), var(--ph-b, #33473A));
+    display:flex;
+    align-items:flex-end;
+  }
+  .ph::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+    background-size: 14px 14px;
+    opacity:.5;
+    mix-blend-mode:overlay;
+  }
+  .ph--photo{ background-color:#241A12; }
+  .ph--photo{ background-size:cover !important; background-repeat:no-repeat !important; }
+  .ph--photo::before{ content:none; }
+  .ph__tag{
+    position:relative;
+    z-index:1;
+    margin:14px;
+    font-family:var(--font-body);
+    font-size:.62rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.92);
+    background:rgba(20,15,10,.32);
+    border:1px solid rgba(255,255,255,.35);
+    padding:6px 10px;
+    border-radius:2px;
+    backdrop-filter:blur(2px);
+  }
+  .ph__icon{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:34px; height:34px; opacity:.35;
+  }
+
+  /* ---------- Flourish signature motif ---------- */
+  .flourish{ width:150px; height:90px; color:var(--gold); }
+  .flourish--sm{ width:70px; height:42px; }
+
+  /* ================= NAV ================= */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:22px 0;
+    transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
+  }
+  .nav.is-scrolled{
+    background:rgba(251,243,231,.94);
+    backdrop-filter:blur(8px);
+    padding:14px 0;
+    box-shadow:0 2px 18px rgba(43,32,24,.08);
+  }
+  .nav__row{ display:flex; align-items:center; justify-content:space-between; }
+  .nav__brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-script); font-size:2rem; color:var(--cream); transition:color .35s ease;}
+  .nav.is-scrolled .nav__brand{ color:var(--forest); }
+  .nav__brand svg{ width:34px; height:34px; }
+  .brand-logo{ width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0; box-shadow:0 0 0 1.5px rgba(251,243,231,.4); }
+  .nav__links{ display:flex; gap:34px; align-items:center; }
+  .nav__links a{
+    font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; font-weight:500;
+    color:rgba(251,243,231,.92); position:relative; padding:4px 0; transition:color .35s ease;
+  }
+  .nav.is-scrolled .nav__links a{ color:var(--charcoal-soft); }
+  .nav__links a::after{
+    content:''; position:absolute; left:0; bottom:-3px; width:0; height:1.5px; background:var(--gold);
+    transition:width .25s ease;
+  }
+  .nav__links a:hover::after{ width:100%; }
+  .nav__cta{ display:flex; align-items:center; gap:16px; }
+  .nav__phone{ font-size:.8rem; font-weight:600; letter-spacing:.03em; color:var(--cream); transition:color .35s ease; }
+  .nav.is-scrolled .nav__phone{ color:var(--charcoal); }
+  .nav__toggle{ display:none; }
+  .nav__mobile{ display:none; }
+
+  @media(max-width:940px){
+    .nav__links{ display:none; }
+    .nav__toggle{
+      display:block; background:none; border:none; cursor:pointer; padding:6px;
+    }
+    .nav__toggle span{ display:block; width:24px; height:2px; background:var(--cream); margin:5px 0; transition:.3s; }
+    .nav.is-scrolled .nav__toggle span{ background:var(--charcoal); }
+    .nav__phone{ display:none; }
+    .nav__mobile{
+      display:flex;
+      position:fixed; inset:0 0 0 auto; width:78%; max-width:340px; height:100vh;
+      background:var(--forest); z-index:200; transform:translateX(100%);
+      transition:transform .4s cubic-bezier(.65,0,.35,1);
+      flex-direction:column; justify-content:center; gap:30px; padding:40px;
+    }
+    .nav__mobile.is-open{ transform:translateX(0); }
+    .nav__mobile a{ font-family:var(--font-display); font-size:1.5rem; color:var(--cream); }
+    .nav__mobile .nav__close{ position:absolute; top:26px; right:26px; background:none;border:none;color:var(--cream); font-size:1.6rem; cursor:pointer; }
+  }
+
+  /* ================= HERO ================= */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    color:var(--cream);
+    overflow:hidden;
+    --ph-a:#C9834A; --ph-b:#2C2118;
+  }
+  .hero::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(24,34,29,.62) 0%, rgba(20,28,23,.76) 45%, rgba(13,19,15,.96) 100%);
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0; z-index:1;
+    background:
+      radial-gradient(46% 42% at 50% 46%, rgba(10,15,11,.38), rgba(10,15,11,0) 72%),
+      radial-gradient(60% 50% at 50% 38%, rgba(184,146,63,.14), rgba(184,146,63,0) 70%);
+  }
+  .hero__content{ position:relative; z-index:2; max-width:760px; padding:0 24px; }
+  .hero__flourish{ margin-bottom:6px; }
+  .hero__eyebrow{
+    color:var(--gold-light); text-transform:uppercase; letter-spacing:.32em; font-size:.72rem; font-weight:600;
+    text-shadow:0 2px 10px rgba(0,0,0,.6);
+    display:flex; align-items:center; justify-content:center; gap:.9em;
+  }
+  .hero__eyebrow::before, .hero__eyebrow::after{
+    content:''; width:28px; height:1px; background:linear-gradient(90deg, transparent, var(--gold-light));
+    display:inline-block;
+  }
+  .hero__eyebrow::after{ background:linear-gradient(90deg, var(--gold-light), transparent); }
+  .hero__title{
+    font-family:var(--font-script);
+    font-size:clamp(4.2rem, 11vw, 8rem);
+    color:var(--forest);
+    line-height:1;
+    margin:6px 0 10px;
+    text-shadow:
+      -1.5px -1.5px 0 rgba(251,243,231,.85),
+      1.5px -1.5px 0 rgba(251,243,231,.85),
+      -1.5px 1.5px 0 rgba(251,243,231,.85),
+      1.5px 1.5px 0 rgba(251,243,231,.85),
+      0 10px 34px rgba(0,0,0,.45);
+  }
+  .hero__tagline{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.15rem, 2.4vw, 1.55rem);
+    color:var(--cream);
+    max-width:540px; margin:0 auto 14px;
+    text-shadow:0 2px 12px rgba(0,0,0,.55);
+  }
+  .hero__sub{
+    font-size:1rem; color:rgba(251,243,231,.9); max-width:480px; margin:0 auto 38px; font-weight:300;
+    text-shadow:0 2px 10px rgba(0,0,0,.5);
+  }
+  .hero__ctas{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:38px; }
+  .hero__stats-rule{
+    width:64px; height:1px; margin:0 auto 24px;
+    background:linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    opacity:.7;
+  }
+  .hero__stats{
+    display:flex; gap:14px; justify-content:center; flex-wrap:wrap; align-items:center;
+    font-size:.82rem; letter-spacing:.03em; color:rgba(251,243,231,.85);
+  }
+  .hero__stats b{ color:var(--gold-light); font-family:var(--font-body); font-weight:700; }
+  .hero__stats span:not(:last-child)::after{
+    content:'●'; color:var(--gold); font-size:.4rem; margin-left:14px; opacity:.8; vertical-align:middle;
+  }
+  @media (max-width:640px){
+    .hero__stats span:not(:last-child)::after{ display:none; }
+    .hero__stats{ row-gap:10px; }
+  }
+  .hero__scroll{
+    position:absolute; bottom:30px; left:50%; transform:translateX(-50%); z-index:2;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    color:rgba(251,243,231,.75); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase;
+  }
+  .hero__scroll svg{ width:14px; height:20px; animation:bob 2.2s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(7px);} }
+
+  /* ================= REVEAL ================= */
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+  /* ================= SECTION DIVIDER ================= */
+  .divider{
+    display:flex; align-items:center; justify-content:center; gap:20px;
+    max-width:320px; margin:0 auto 56px;
+  }
+  .reveal.divider{ opacity:1; transform:none; }
+  .divider__line{
+    flex:1; height:1px; max-width:120px;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform:scaleX(0); transition:transform 1.15s cubic-bezier(.16,1,.3,1);
+  }
+  .divider__line--l{ transform-origin:right center; }
+  .divider__line--r{ transform-origin:left center; }
+  .divider.is-visible .divider__line{ transform:scaleX(1); }
+  .divider__icon{
+    width:20px; height:20px; color:var(--gold); flex-shrink:0;
+    opacity:0; transform:scale(.3) rotate(-120deg);
+    transition:opacity .6s ease .45s, transform .7s cubic-bezier(.34,1.56,.64,1) .45s;
+  }
+  .divider.is-visible .divider__icon{ opacity:1; transform:scale(1) rotate(0deg); }
+  .divider--dark .divider__line{ background:linear-gradient(90deg, transparent, var(--gold-light), transparent); }
+  .divider--dark .divider__icon{ color:var(--gold-light); }
+  .divider-band{ padding:14px 0 14px; background:var(--cream); }
+  .divider-band .divider{ margin-bottom:0; }
+
+  /* ================= DECORATIVE TULIPS ================= */
+  .watermark-tulip{
+    position:absolute; z-index:0; pointer-events:none; color:var(--gold);
+  }
+  .about > .container{ position:relative; z-index:1; }
+  .ambience > .container{ position:relative; z-index:1; }
+  .menu > .container{ position:relative; z-index:1; }
+  .testimonials > .container{ position:relative; z-index:1; }
+  .location > .container{ position:relative; z-index:1; }
+  .footer > .container{ position:relative; z-index:1; }
+
+  .watermark-tulip--about{ width:320px; height:320px; top:-70px; right:-60px; opacity:.05; transform:rotate(12deg); }
+  .watermark-tulip--ambience{ width:280px; height:280px; bottom:-60px; left:-70px; opacity:.05; transform:rotate(-10deg); }
+  .watermark-tulip--menu{ width:380px; height:380px; top:-90px; right:-90px; opacity:.045; transform:rotate(8deg); }
+  .watermark-tulip--testimonials{ width:520px; height:520px; top:50%; left:50%; transform:translate(-50%,-50%); opacity:.055; color:var(--gold-light); }
+  .watermark-tulip--location{ width:260px; height:260px; bottom:-70px; right:-50px; opacity:.05; }
+  .watermark-tulip--footer{ width:300px; height:300px; bottom:-90px; left:-70px; opacity:.045; color:var(--gold-light); }
+  @media(max-width:768px){
+    .watermark-tulip--about, .watermark-tulip--menu{ width:220px; height:220px; }
+    .watermark-tulip--ambience, .watermark-tulip--location, .watermark-tulip--footer{ width:180px; height:180px; }
+    .watermark-tulip--testimonials{ width:340px; height:340px; }
+  }
+
+  .menu__cat-title{ align-items:center; }
+  .menu__cat-icon{ width:19px; height:19px; color:var(--gold); flex-shrink:0; opacity:.85; }
+
+  .t-card{ position:relative; overflow:hidden; }
+  .t-card__mark{ position:absolute; top:10px; right:10px; width:46px; height:46px; color:var(--gold-light); opacity:.14; pointer-events:none; }
+  @media(max-width:768px){
+    .divider{ max-width:220px; gap:14px; margin-bottom:40px; }
+    .divider__line{ max-width:70px; }
+    .divider-band{ padding:50px 0 0; }
+  }
+
+  /* ================= ABOUT ================= */
+  .about{ background:var(--cream); position:relative; overflow:hidden; }
+  .about__grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center;
+  }
+  .about__text > *{ margin-top:18px; }
+  .about__text h2{ font-size:clamp(2.1rem, 4vw, 2.8rem); line-height:1.15; }
+  .about__lead{ font-size:1.08rem; color:var(--charcoal-soft); font-weight:300; }
+  .about__quote{
+    font-family:var(--font-display); font-style:italic; font-size:1.3rem; color:var(--forest);
+    border-left:2px solid var(--gold); padding-left:22px; margin:28px 0;
+  }
+  .about__badges{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+  .about__badge{
+    font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:600;
+    color:var(--forest); border:1px solid var(--line); padding:9px 16px; border-radius:20px;
+  }
+  .about__visual{ position:relative; }
+  .about__visual .ph{ aspect-ratio:4/5; border-radius:2px; }
+  .about__visual-inset{
+    position:absolute; bottom:-38px; left:-46px; width:52%; aspect-ratio:5/4;
+    border:6px solid var(--cream); box-shadow:0 18px 40px rgba(43,32,24,.22);
+  }
+  @media(max-width:940px){
+    .about__grid{ grid-template-columns:1fr; gap:64px; }
+    .about__visual-inset{ left:0; bottom:-30px; width:56%; }
+    .about__visual{ margin-bottom:40px; }
+  }
+
+  /* ================= FULL-BLEED BANNER ================= */
+  .banner{
+    position:relative; min-height:56vh; display:flex; align-items:center; justify-content:center;
+    text-align:center; color:var(--cream); overflow:hidden;
+  }
+  .banner::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,11,7,.55), rgba(15,11,7,.72) 45%, rgba(15,11,7,.82)); }
+  .banner__inner{ position:relative; z-index:2; max-width:640px; padding:0 24px; }
+  .banner__eyebrow{ color:var(--gold-light); text-transform:uppercase; letter-spacing:.3em; font-size:.7rem; font-weight:600; text-shadow:0 2px 10px rgba(0,0,0,.6); }
+  .banner h3{ font-size:clamp(1.9rem,4vw,3rem); margin-top:14px; font-weight:500; line-height:1.2; color:var(--cream); text-shadow:0 2px 16px rgba(0,0,0,.65), 0 1px 3px rgba(0,0,0,.5); }
+  .banner p{ margin-top:16px; font-weight:300; color:rgba(251,243,231,.92); font-size:1.02rem; text-shadow:0 2px 10px rgba(0,0,0,.6); }
+
+  /* ================= AMBIENCE ================= */
+  .ambience{ background:var(--cream-2); position:relative; overflow:hidden; }
+  .ambience__head{ max-width:640px; margin-bottom:56px; }
+  .ambience__head h2{ font-size:clamp(2.1rem,4vw,2.8rem); margin-top:16px; }
+  .ambience__head p{ margin-top:18px; color:var(--charcoal-soft); font-weight:300; font-size:1.05rem; }
+  .ambience__grid{
+    display:grid; grid-template-columns:1.4fr 1fr; grid-template-rows:auto auto; gap:22px;
+  }
+  .ambience__grid .ph:nth-child(1){ grid-row:1 / 3; aspect-ratio:auto; min-height:520px; }
+  .ambience__grid .ph:nth-child(2){ aspect-ratio:6/5; }
+  .ambience__grid .ph:nth-child(3){ aspect-ratio:6/5; }
+  @media(max-width:860px){
+    .ambience__grid{ grid-template-columns:1fr; }
+    .ambience__grid .ph:nth-child(1){ grid-row:auto; min-height:340px; }
+  }
+
+  /* ================= MENU ================= */
+  .menu{ background:var(--cream); position:relative; overflow:hidden; }
+  .menu__head{ text-align:center; max-width:640px; margin:0 auto 70px; }
+  .menu__head h2{ font-size:clamp(2.2rem,4.4vw,3.1rem); margin-top:16px; }
+  .menu__head p{ margin-top:16px; color:var(--charcoal-soft); font-weight:300; }
+
+  .menu__block{ margin-bottom:86px; }
+  .menu__block:last-child{ margin-bottom:0; }
+  .menu__block-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;
+  }
+  .menu__block-grid > *{ min-width:0; }
+  .menu__block-grid.reverse{ direction:rtl; }
+  .menu__block-grid.reverse > *{ direction:ltr; }
+  .menu__block-grid .ph{ align-self:stretch; min-height:380px; width:100%; }
+  .menu__cat-title{ display:flex; align-items:baseline; gap:16px; margin-bottom:26px; }
+  .menu__cat-title h3{ font-size:1.7rem; white-space:nowrap; }
+  .menu__cat-rule{ flex:1; height:1px; background:var(--line); }
+
+  .menu-row{ display:flex; align-items:flex-end; gap:.5rem; padding:12px 0; border-bottom:1px solid var(--line); }
+  .menu-row:last-child{ border-bottom:none; }
+  .menu-row__name{ font-family:var(--font-display); font-size:1.06rem; font-weight:500; color:var(--charcoal); }
+  .menu-row__leader{ flex:1; border-bottom:2px dotted rgba(43,32,24,.28); margin-bottom:5px; }
+  .menu-row--plain .menu-row__leader{ border-bottom-color:transparent; }
+  .menu-row__price{ font-family:var(--font-body); font-weight:700; color:var(--amber-deep); font-size:.95rem; white-space:nowrap; }
+  .menu-row__group{ width:100%; }
+  .menu-row__desc{ margin:-4px 0 14px; font-size:.86rem; font-style:italic; color:var(--charcoal-soft); font-weight:300; max-width:520px; }
+
+  .menu__cols{ display:grid; grid-template-columns:1fr 1fr; gap:0 48px; }
+  @media(max-width:640px){ .menu__cols{ grid-template-columns:1fr; } }
+
+  .menu__subhead{
+    font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--amber-deep); font-weight:700;
+    margin:26px 0 6px;
+  }
+  .menu__subhead:first-child{ margin-top:0; }
+
+  @media(max-width:860px){
+    .menu__block-grid{ grid-template-columns:1fr; gap:34px; }
+    .menu__block-grid .ph{ min-height:260px; order:-1; }
+    .menu__block-grid.reverse .ph{ order:-1; }
+  }
+
+  .badges-row{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:54px; }
+  .badge-pill{
+    display:flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:24px;
+    padding:10px 20px; font-size:.78rem; color:var(--forest); font-weight:500;
+  }
+  .badge-pill svg{ width:16px; height:16px; color:var(--gold); }
+
+  /* ================= TESTIMONIALS ================= */
+  .testimonials{ background:var(--forest); color:var(--cream); position:relative; overflow:hidden; }
+  .testimonials .eyebrow{ color:var(--gold-light); }
+  .testimonials .eyebrow::before{ background:var(--gold-light); }
+  .testimonials__head{ text-align:center; max-width:600px; margin:0 auto 60px; }
+  .testimonials__head h2{ color:var(--cream); font-size:clamp(2.1rem,4vw,2.8rem); margin-top:16px; }
+  .testimonials__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
+  .t-card{
+    background:rgba(251,243,231,.05); border:1px solid rgba(251,243,231,.14); border-radius:2px;
+    padding:34px 30px; display:flex; flex-direction:column; gap:16px;
+  }
+  .t-card__stars{ color:var(--gold-light); font-size:.95rem; letter-spacing:.14em; }
+  .t-card__quote{ font-family:var(--font-display); font-style:italic; font-size:1.05rem; line-height:1.55; color:rgba(251,243,231,.92); flex:1; }
+  .t-card__author{ font-size:.78rem; letter-spacing:.05em; color:rgba(251,243,231,.6); text-transform:uppercase; }
+  .testimonials__agg{
+    margin-top:56px; display:flex; justify-content:center; gap:50px; flex-wrap:wrap; text-align:center;
+  }
+  .agg-item b{ display:block; font-family:var(--font-display); font-size:2rem; color:var(--gold-light); }
+  .agg-item span{ font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(251,243,231,.65); }
+  @media(max-width:860px){ .testimonials__grid{ grid-template-columns:1fr; } }
+
+  /* ================= GALLERY STRIP ================= */
+  .strip{ background:var(--cream-2); padding:70px 0; }
+  .strip__grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .strip .ph{ aspect-ratio:16/10; }
+  @media(max-width:700px){ .strip__grid{ grid-template-columns:1fr; } }
+
+  /* ================= LOCATION ================= */
+  .location{ background:var(--cream); padding-bottom:56px; position:relative; overflow:hidden; }
+  .location__grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:stretch; }
+  .location__info h2{ font-size:clamp(2.1rem,4vw,2.8rem); margin:16px 0 26px; }
+  .info-row{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line); }
+  .info-row:last-of-type{ border-bottom:1px solid var(--line); }
+  .info-row svg{ width:20px; height:20px; color:var(--gold); flex-shrink:0; margin-top:2px; }
+  .info-row__label{ font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--charcoal-soft); margin-bottom:4px; }
+  .info-row__value{ font-family:var(--font-display); font-size:1.08rem; }
+  .info-row__value small{ display:block; font-family:var(--font-body); font-size:.85rem; color:var(--charcoal-soft); font-weight:300; margin-top:2px; }
+  .hours-table{ width:100%; border-collapse:collapse; margin-top:2px; }
+  .hours-table td{ padding:2px 0; font-size:.95rem; }
+  .hours-table td:first-child{ color:var(--charcoal-soft); }
+  .hours-table td:last-child{ text-align:right; font-weight:600; }
+  .location__ctas{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .location__map{ border-radius:2px; overflow:hidden; border:1px solid var(--line); min-height:420px; }
+  .location__map iframe{ width:100%; height:100%; min-height:420px; border:0; filter:grayscale(.25) contrast(1.05); }
+  @media(max-width:940px){ .location__grid{ grid-template-columns:1fr; gap:50px; } }
+
+  /* ================= FOOTER ================= */
+  .footer{ background:var(--forest-deep); color:rgba(251,243,231,.78); padding:70px 0 30px; position:relative; overflow:hidden; }
+  .footer__top{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; padding-bottom:50px; border-bottom:1px solid rgba(251,243,231,.12); }
+  .footer__brand{ display:flex; align-items:center; gap:12px; font-family:var(--font-script); font-size:2.1rem; color:var(--cream); margin-bottom:14px; }
+  .footer__brand svg{ width:36px; height:36px; }
+  .footer__brand .brand-logo{ width:40px; height:40px; }
+  .footer p.footer__desc{ font-size:.92rem; font-weight:300; max-width:320px; color:rgba(251,243,231,.6); }
+  .footer h4{ color:var(--cream); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600; margin-bottom:18px; font-family:var(--font-body); }
+  .footer ul li{ margin-bottom:11px; font-size:.9rem; }
+  .footer ul li a:hover{ color:var(--gold-light); }
+  .footer__social{ display:flex; gap:14px; margin-top:18px; }
+  .footer__social a{ width:36px; height:36px; border:1px solid rgba(251,243,231,.3); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:.25s; }
+  .footer__social a:hover{ background:var(--gold); border-color:var(--gold); }
+  .footer__social svg{ width:16px; height:16px; }
+  .footer__bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; padding-top:26px; font-size:.78rem; color:rgba(251,243,231,.45); }
+  @media(max-width:760px){ .footer__top{ grid-template-columns:1fr; gap:36px; } .footer__bottom{ flex-direction:column; } }
+
+  /* ================= STICKY CTA ================= */
+  .fab{
+    position:fixed; right:24px; bottom:24px; z-index:90;
+    width:58px; height:58px; border-radius:50%; background:var(--gold); color:var(--cream);
+    display:flex; align-items:center; justify-content:center; box-shadow:0 10px 26px rgba(43,32,24,.3);
+    transition:transform .25s ease, background .25s ease;
+  }
+  .fab:hover{ transform:scale(1.08); background:var(--gold-light); }
+  .fab svg{ width:24px; height:24px; }
+</style>
+</head>
+<body>
+
+<!-- Hidden SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-tulip" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <path d="M50 28 C38 37 36 52 50 66 C64 52 62 37 50 28Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M50 66 L50 84" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M50 84 C41 84 34 79 31 71" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      <path d="M50 78 C59 78 66 74 69 66" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ic-flourish" viewBox="0 0 200 120">
+      <path d="M100 118 C100 90 100 62 100 40" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".7"/>
+      <path d="M100 40 C88 30 70 30 60 42 C74 48 88 46 100 40Z" fill="currentColor" opacity=".85"/>
+      <path d="M100 40 C112 30 130 30 140 42 C126 48 112 46 100 40Z" fill="currentColor" opacity=".85"/>
+      <path d="M100 55 C90 48 76 50 68 60 C80 64 92 62 100 55Z" fill="currentColor" opacity=".55"/>
+      <path d="M100 55 C110 48 124 50 132 60 C120 64 108 62 100 55Z" fill="currentColor" opacity=".55"/>
+      <circle cx="100" cy="34" r="7" fill="currentColor"/>
+      <path d="M100 75 C94 70 84 71 79 78 C87 81 94 80 100 75Z" fill="currentColor" opacity=".4"/>
+      <path d="M100 75 C106 70 116 71 121 78 C113 81 106 80 100 75Z" fill="currentColor" opacity=".4"/>
+    </symbol>
+    <symbol id="ic-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M8 3.5c1 0 2.3 2.3 2.3 3.3s-1.4 1.6-1.4 2.6C8.9 11 13 15.1 14.6 15.1c1 0 1.6-1.4 2.6-1.4s3.3 1.3 3.3 2.3c0 1.6-1.7 3.5-3.3 3.5C13.5 19.5 4.5 10.5 4.5 6.8c0-1.6 1.9-3.3 3.5-3.3Z"/></symbol>
+    <symbol id="ic-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M4 20C4 10 10 4 20 4c0 10-6 16-16 16Z"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M4 20 14 10"/></symbol>
+    <symbol id="ic-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6 6.6.7-4.9 4.5 1.3 6.5L12 16.9 6.1 20.2l1.3-6.5-4.9-4.5 6.6-.7z"/></symbol>
+    <symbol id="ic-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="ic-fork" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M6 2v8M9 2v8M6 10a3 3 0 0 1-3-3V2M6 10v12M15 2c-2 0-3 2-3 5s1 4 3 4v11"/></symbol>
+    <symbol id="ic-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 7 6-7"/></symbol>
+  </defs>
+</svg>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <div class="container nav__row">
+    <a href="#inicio" class="nav__brand"><img src="images/logo.png" alt="Tulipa" class="brand-logo">Tulipa</a>
+    <div class="nav__links">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#espaco">Espaço</a>
+      <a href="#ementa">Ementa</a>
+      <a href="#localizacao">Localização</a>
+    </div>
+    <div class="nav__cta">
+      <a href="tel:+351966892884" class="nav__phone">966 892 884</a>
+      <a href="tel:+351966892884" class="btn btn--solid">Reservar</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav__mobile" id="navMobile">
+    <button class="nav__close" id="navClose" aria-label="Fechar menu">×</button>
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#espaco">Espaço</a>
+    <a href="#ementa">Ementa</a>
+    <a href="#localizacao">Localização</a>
+    <a href="tel:+351966892884" style="color:#D4B571">966 892 884</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="inicio">
+  <div class="ph ph--photo" role="img" aria-label="Salão do Tulipa com candeeiros de ráfia suspensos entre um teto coberto de flores" style="position:absolute;inset:0;background-image:url('images/hero.jpg');background-position:center 18%;"></div>
+  <div class="hero__content">
+    <svg class="flourish hero__flourish"><use href="#ic-flourish"/></svg>
+    <div class="hero__eyebrow">Restaurante Familiar · Loures</div>
+    <h1 class="hero__title">Tulipa</h1>
+    <p class="hero__tagline">Onde cada refeição floresce em bons momentos.</p>
+    <p class="hero__sub">Cozinha portuguesa feita com amor, servida num salão vestido de flor a flor — do teto ao coração da casa.</p>
+    <div class="hero__ctas">
+      <a href="#ementa" class="btn btn--solid">Ver a Ementa</a>
+      <a href="tel:+351966892884" class="btn btn--ghost">Reservar Mesa</a>
+    </div>
+    <div class="hero__stats-rule"></div>
+    <div class="hero__stats">
+      <span><b>4,8 ★</b> Google · 377 opiniões</span>
+      <span><b>9,6/10</b> TheFork · 646 críticas</span>
+      <span><b>15–25 €</b> por pessoa</span>
+    </div>
+  </div>
+  <div class="hero__scroll"><span>Descer</span><svg><use href="#ic-chev"/></svg></div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section class="about section" id="sobre">
+  <svg class="watermark-tulip watermark-tulip--about"><use href="#ic-tulip"/></svg>
+  <div class="divider reveal">
+    <span class="divider__line divider__line--l"></span>
+    <svg class="divider__icon"><use href="#ic-tulip"/></svg>
+    <span class="divider__line divider__line--r"></span>
+  </div>
+  <div class="container about__grid">
+    <div class="about__visual reveal">
+      <div class="ph ph--photo" role="img" aria-label="Parede de flores com o letreiro luminoso Tulipa" style="background-image:url('images/about_main.jpg');background-position:center;"></div>
+      <div class="about__visual-inset ph ph--photo" role="img" aria-label="Mesa posta com vinhos e prato principal do Tulipa" style="background-image:url('images/about_detail.jpg');background-position:center;"></div>
+    </div>
+    <div class="about__text reveal">
+      <span class="eyebrow">A Nossa História</span>
+      <h2>Comida feita com amor</h2>
+      <p class="about__lead">Reúna a família e os amigos para desfrutar de bons momentos à mesa. No Tulipa, cada prato nasce de receitas portuguesas genuínas, servido num salão onde as flores tomam conta do teto e das paredes — um convite para abrandar e ficar um pouco mais.</p>
+      <p class="about__quote">"Um ambiente agradável e acolhedor."</p>
+      <p>Abrimos as portas de terça a domingo, de braços — e mesa — sempre abertos para quem procura uma refeição cuidada, num espaço que é tão bonito de ver como bom de sentir.</p>
+      <div class="about__badges">
+        <span class="about__badge">Opções Veganas</span>
+        <span class="about__badge">Happy Hour de Comida</span>
+        <span class="about__badge">Menu à Discrição</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BANNER 1 ================= -->
+<div class="banner">
+  <div class="ph ph--photo" role="img" aria-label="Arroz de marisco servido na caçoila de barro" style="position:absolute;inset:0;background-image:url('images/banner1.jpg');background-position:center;"></div>
+  <div class="banner__inner reveal">
+    <span class="banner__eyebrow">Sabores do Mar</span>
+    <h3>Histórias que se contam à mesa, prato a prato.</h3>
+  </div>
+</div>
+
+<!-- ================= AMBIENCE ================= -->
+<section class="ambience section" id="espaco">
+  <svg class="watermark-tulip watermark-tulip--ambience"><use href="#ic-tulip"/></svg>
+  <div class="divider reveal">
+    <span class="divider__line divider__line--l"></span>
+    <svg class="divider__icon"><use href="#ic-tulip"/></svg>
+    <span class="divider__line divider__line--r"></span>
+  </div>
+  <div class="container">
+    <div class="ambience__head reveal">
+      <span class="eyebrow">O Espaço</span>
+      <h2>Um salão que floresce</h2>
+      <p>Candeeiros de ráfia pendurados entre uma nuvem de flores, paredes que mudam de tom com a luz da tarde e, lá fora, um pátio à sombra de um limoeiro. O Tulipa foi pensado para ser vivido devagar.</p>
+    </div>
+    <div class="ambience__grid reveal">
+      <div class="ph ph--photo" role="img" aria-label="Sala principal do Tulipa com papel de parede floral" style="background-image:url('images/ambience1.jpg');background-position:center;"></div>
+      <div class="ph ph--photo" role="img" aria-label="Candeeiros de ráfia e instalação floral no teto do Tulipa" style="background-image:url('images/ambience2.jpg');background-position:center 25%;"></div>
+      <div class="ph ph--photo" role="img" aria-label="Esplanada do Tulipa à sombra de um limoeiro" style="background-image:url('images/ambience3.jpg');background-position:center;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="menu section" id="ementa">
+  <svg class="watermark-tulip watermark-tulip--menu"><use href="#ic-tulip"/></svg>
+  <div class="container">
+    <div class="menu__head reveal">
+      <span class="eyebrow">A Ementa</span>
+      <h2>Uma mesa cheia de escolhas</h2>
+      <p>Da massa feita na hora aos petiscos partilhados, dos grelhados na brasa às sobremesas da casa — eis alguns dos sabores que nos definem.</p>
+    </div>
+
+    <!-- Massas -->
+    <div class="menu__block reveal">
+      <div class="menu__block-grid">
+        <div>
+          <div class="menu__cat-title"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3>Massas</h3><div class="menu__cat-rule"></div></div>
+          <div class="menu-row">
+            <span class="menu-row__name">Esparguete de Marisco</span>
+            <span class="menu-row__leader"></span>
+            <span class="menu-row__price">12,90 €</span>
+          </div>
+          <div class="menu-row">
+            <span class="menu-row__name">Rigatoni com Natas e Cogumelos Selvagens</span>
+            <span class="menu-row__leader"></span>
+            <span class="menu-row__price">10,50 €</span>
+          </div>
+        </div>
+        <div class="ph ph--photo" role="img" aria-label="Esparguete de marisco do Tulipa" style="background-image:url('images/menu_massas.jpg');background-position:center;"></div>
+      </div>
+    </div>
+
+    <!-- Na Frigideira -->
+    <div class="menu__block reveal">
+      <div class="menu__block-grid reverse">
+        <div>
+          <div class="menu__cat-title"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3>Na Frigideira</h3><div class="menu__cat-rule"></div></div>
+          <div class="menu-row__group">
+            <div class="menu-row">
+              <span class="menu-row__name">Trilogia Tulipa</span>
+              <span class="menu-row__leader"></span>
+              <span class="menu-row__price">15,50 €</span>
+            </div>
+            <p class="menu-row__desc">Três bifes incríveis! Um vai à portuguesa, outro à mostarda... e outro com aquele toque mexicano. Atreva-se.</p>
+          </div>
+          <div class="menu-row">
+            <span class="menu-row__name">Bife à Cervejeira</span>
+            <span class="menu-row__leader"></span>
+            <span class="menu-row__price">12,50 €</span>
+          </div>
+        </div>
+        <div class="ph ph--photo" role="img" aria-label="Petiscos na frigideira, ovo a cavalo e molho" style="background-image:url('images/menu_frigideira.jpg');background-position:center;"></div>
+      </div>
+    </div>
+
+    <!-- Petiscos para a Tarde -->
+    <div class="menu__block reveal">
+      <div class="menu__block-grid">
+        <div>
+          <div class="menu__cat-title"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3>Petiscos para a Tarde</h3><div class="menu__cat-rule"></div></div>
+          <div class="menu__cols">
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Pica Pau</span><span class="menu-row__leader"></span><span class="menu-row__price">10,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Camarão à Guilho</span><span class="menu-row__leader"></span><span class="menu-row__price">11,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Carpaccio</span><span class="menu-row__leader"></span><span class="menu-row__price">10,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Presunto Fatiado</span><span class="menu-row__leader"></span><span class="menu-row__price">12,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Tábua de Queijos</span><span class="menu-row__leader"></span><span class="menu-row__price">10,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Prego Tulipa</span><span class="menu-row__leader"></span><span class="menu-row__price">6,50 €</span></div>
+            </div>
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Pimentos Padrón</span><span class="menu-row__leader"></span><span class="menu-row__price">5,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Bruschetta</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+              <div class="menu-row__group">
+                <div class="menu-row"><span class="menu-row__name">Tosta de Abacate</span><span class="menu-row__leader"></span><span class="menu-row__price">5,00 €</span></div>
+                <p class="menu-row__desc">Abacate, tomate, queijo mozarella e manjericão.</p>
+              </div>
+              <div class="menu-row__group">
+                <div class="menu-row"><span class="menu-row__name">Tosta de Salmão Fumado</span><span class="menu-row__leader"></span><span class="menu-row__price">5,00 €</span></div>
+                <p class="menu-row__desc">Salmão fumado, queijo mozarella e manjericão.</p>
+              </div>
+              <div class="menu-row__group">
+                <div class="menu-row"><span class="menu-row__name">Tosta de Jamón</span><span class="menu-row__leader"></span><span class="menu-row__price">5,00 €</span></div>
+                <p class="menu-row__desc">Jamón, tomate e queijo de cabra.</p>
+              </div>
+              <div class="menu-row"><span class="menu-row__name">Ovos Mexidos com Farinheira</span><span class="menu-row__leader"></span><span class="menu-row__price">6,50 €</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ph ph--photo" role="img" aria-label="Petiscos para a tarde do Tulipa" style="background-image:url('images/strip1.jpg');background-position:center;"></div>
+      </div>
+    </div>
+
+    <!-- Na Grelha + Peixe -->
+    <div class="menu__block reveal">
+      <div class="menu__block-grid reverse">
+        <div>
+          <div class="menu__cols">
+            <div>
+              <div class="menu__cat-title"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3 style="font-size:1.3rem">Na Grelha</h3></div>
+              <div class="menu-row"><span class="menu-row__name">Picanha Tulipa</span><span class="menu-row__leader"></span><span class="menu-row__price">17,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Entrecôte</span><span class="menu-row__leader"></span><span class="menu-row__price">15,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Bife da Vazia</span><span class="menu-row__leader"></span><span class="menu-row__price">13,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Bife de Frango</span><span class="menu-row__leader"></span><span class="menu-row__price">10,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Secretos com Migas</span><span class="menu-row__leader"></span><span class="menu-row__price">12,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Costeleta de Vitela</span><span class="menu-row__leader"></span><span class="menu-row__price">13,00 €</span></div>
+            </div>
+            <div>
+              <div class="menu__cat-title"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3 style="font-size:1.3rem">Peixe</h3></div>
+              <div class="menu-row"><span class="menu-row__name">Arroz de Garoupa</span><span class="menu-row__leader"></span><span class="menu-row__price">15,00 €</span></div>
+              <div class="menu-row__group">
+                <div class="menu-row"><span class="menu-row__name">Posta de Garoupa Grelhada</span><span class="menu-row__leader"></span><span class="menu-row__price">13,00 €</span></div>
+                <p class="menu-row__desc">Com legumes e batata cozida.</p>
+              </div>
+              <div class="menu-row__group">
+                <div class="menu-row"><span class="menu-row__name">Posta de Salmão Grelhado</span><span class="menu-row__leader"></span><span class="menu-row__price">11,00 €</span></div>
+                <p class="menu-row__desc">Com legumes e batata cozida.</p>
+              </div>
+              <div class="menu-row__group">
+                <div class="menu-row"><span class="menu-row__name">Lombo de Robalo Grelhado</span><span class="menu-row__leader"></span><span class="menu-row__price">11,00 €</span></div>
+                <p class="menu-row__desc">Com legumes e batata cozida.</p>
+              </div>
+              <div class="menu-row__group">
+                <div class="menu-row"><span class="menu-row__name">Trilogia do Mar</span><span class="menu-row__leader"></span><span class="menu-row__price">25,00 €</span></div>
+                <p class="menu-row__desc">Para 2 pessoas — o melhor do mar, três formas de o servir.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu__cat-title" style="margin-top:44px;"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3 style="font-size:1.3rem">Acompanhamentos <span style="font-weight:400;font-size:.7em;color:var(--charcoal-soft);text-transform:none;letter-spacing:0;">(extra)</span></h3></div>
+          <div class="menu__cols">
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Arroz de Feijão</span><span class="menu-row__leader"></span><span class="menu-row__price">3,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Arroz Branco</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Arroz de Legumes</span><span class="menu-row__leader"></span><span class="menu-row__price">3,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Feijão Preto</span><span class="menu-row__leader"></span><span class="menu-row__price">3,00 €</span></div>
+            </div>
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Batata Frita Caseira</span><span class="menu-row__leader"></span><span class="menu-row__price">2,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Batata Frita Piri-Piri</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Legumes Salteados</span><span class="menu-row__leader"></span><span class="menu-row__price">2,00 €</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ph ph--photo" role="img" aria-label="Peixe grelhado do Tulipa" style="background-image:url('images/banner2.jpg');background-position:center;"></div>
+      </div>
+    </div>
+
+    <!-- Feitos ao Momento + Bebidas Quentes -->
+    <div class="menu__block reveal">
+      <div class="menu__block-grid">
+        <div>
+          <div class="menu__cols">
+            <div>
+              <div class="menu__cat-title"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3 style="font-size:1.3rem">Feitos ao Momento</h3></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Ovos Mexidos</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Bacon</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Salsichas</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Ovo Estrelado</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Omelete Mista</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Omelete Simples</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Sopa da Pedra</span><span class="menu-row__leader"></span></div>
+            </div>
+            <div>
+              <div class="menu__cat-title"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3 style="font-size:1.3rem">Bebidas Quentes</h3></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Café</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Abatanado</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Galão</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Cappuccino</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Chá</span><span class="menu-row__leader"></span></div>
+              <div class="menu-row menu-row--plain"><span class="menu-row__name">Leite Simples</span><span class="menu-row__leader"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ph ph--photo" role="img" aria-label="Batata frita, petiscos e acompanhamentos" style="background-image:url('images/menu_feitos.jpg');background-position:center;"></div>
+      </div>
+    </div>
+
+    <!-- Sobremesas + Bebidas -->
+    <div class="menu__block reveal">
+      <div class="menu__block-grid reverse">
+        <div>
+          <div class="menu__cat-title"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3>Sobremesas</h3><div class="menu__cat-rule"></div></div>
+          <div class="menu__cols">
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Pudim</span><span class="menu-row__leader"></span><span class="menu-row__price">3,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Red Velvet</span><span class="menu-row__leader"></span><span class="menu-row__price">7,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Cheesecake de Caramelo</span><span class="menu-row__leader"></span><span class="menu-row__price">4,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Fruta da Época</span><span class="menu-row__leader"></span><span class="menu-row__price">3,50 €</span></div>
+            </div>
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Salame Tulipa</span><span class="menu-row__leader"></span><span class="menu-row__price">4,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Tarte de Chocolate Proibido</span><span class="menu-row__leader"></span><span class="menu-row__price">5,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Mousse de Chocolate</span><span class="menu-row__leader"></span><span class="menu-row__price">3,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Doce da Casa</span><span class="menu-row__leader"></span><span class="menu-row__price">3,50 €</span></div>
+            </div>
+          </div>
+
+          <div class="menu__cat-title" style="margin-top:44px;"><svg class="menu__cat-icon"><use href="#ic-tulip"/></svg><h3>Bebidas</h3><div class="menu__cat-rule"></div></div>
+          <div class="menu__subhead">Águas</div>
+          <div class="menu__cols">
+            <div class="menu-row"><span class="menu-row__name">Água Mineral</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+            <div class="menu-row"><span class="menu-row__name">Água Castelo</span><span class="menu-row__leader"></span><span class="menu-row__price">3,00 €</span></div>
+          </div>
+          <div class="menu__subhead">Refrigerantes</div>
+          <div class="menu__cols">
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Coca-Cola</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Coca-Cola Zero</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Fanta Ananás</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Fanta Laranja</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+            </div>
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Guaraná</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Ice Tea Limão</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Ice Tea Manga</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Ice Tea Manga e Ananás</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+            </div>
+          </div>
+          <div class="menu__subhead">Sumos Naturais</div>
+          <div class="menu__cols">
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Laranja</span><span class="menu-row__leader"></span><span class="menu-row__price">3,00 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Limonada</span><span class="menu-row__leader"></span><span class="menu-row__price">2,50 €</span></div>
+            </div>
+            <div>
+              <div class="menu-row"><span class="menu-row__name">Cenoura e Laranja</span><span class="menu-row__leader"></span><span class="menu-row__price">3,50 €</span></div>
+              <div class="menu-row"><span class="menu-row__name">Ananás e Hortelã</span><span class="menu-row__leader"></span><span class="menu-row__price">4,50 €</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ph ph--photo" role="img" aria-label="Cheesecake de caramelo e spritz" style="background-image:url('images/menu_sobremesas.jpg');background-position:center 30%;"></div>
+      </div>
+    </div>
+
+    <div class="badges-row reveal">
+      <span class="badge-pill"><svg><use href="#ic-leaf"/></svg>Opções Veganas</span>
+      <span class="badge-pill"><svg><use href="#ic-fork"/></svg>Comida à Discrição</span>
+      <span class="badge-pill"><svg><use href="#ic-clock"/></svg>Happy Hour de Comida</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BANNER 2 ================= -->
+<div class="banner">
+  <div class="ph ph--photo" role="img" aria-label="Peixe grelhado com legumes e batata a murro" style="position:absolute;inset:0;background-image:url('images/banner2.jpg');background-position:center;"></div>
+  <div class="banner__inner reveal">
+    <span class="banner__eyebrow">Grelhados na Perfeição</span>
+    <h3>Peixe fresco, brasa certa, sempre à moda da casa.</h3>
+  </div>
+</div>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials section">
+  <svg class="watermark-tulip watermark-tulip--testimonials"><use href="#ic-tulip"/></svg>
+  <div class="divider reveal divider--dark">
+    <span class="divider__line divider__line--l"></span>
+    <svg class="divider__icon"><use href="#ic-tulip"/></svg>
+    <span class="divider__line divider__line--r"></span>
+  </div>
+  <div class="container">
+    <div class="testimonials__head reveal">
+      <span class="eyebrow">Testemunhos</span>
+      <h2>Quem prova, volta</h2>
+    </div>
+    <div class="testimonials__grid reveal">
+      <div class="t-card"><svg class="t-card__mark"><use href="#ic-tulip"/></svg>
+        <div class="t-card__stars">★★★★☆</div>
+        <p class="t-card__quote">"Para o sítio onde se encontra só tenho uma palavra: excelente. Desde os funcionários à comida, bem temperada, gostosa..."</p>
+        <div class="t-card__author">António Luís — Google</div>
+      </div>
+      <div class="t-card"><svg class="t-card__mark"><use href="#ic-tulip"/></svg>
+        <div class="t-card__stars">★★★★★</div>
+        <p class="t-card__quote">"Wonderful staff in this lovely local restaurant with indoor and outdoor seating. We do not speak much Portuguese yet, but the waiters were very helpful..."</p>
+        <div class="t-card__author">Brooke Washington Foster — Google</div>
+      </div>
+      <div class="t-card"><svg class="t-card__mark"><use href="#ic-tulip"/></svg>
+        <div class="t-card__stars">★★★★★</div>
+        <p class="t-card__quote">"Obtive recomendações sobre o lugar através de uma enquete no Facebook, procurava um lugar calmo com boa comida e o Tulipa ganhou em disparado..."</p>
+        <div class="t-card__author">Clara Silva — Google</div>
+      </div>
+    </div>
+    <div class="testimonials__agg reveal">
+      <div class="agg-item"><b>4,8 / 5</b><span>Google · 377 opiniões</span></div>
+      <div class="agg-item"><b>9,6 / 10</b><span>TheFork · 646 críticas</span></div>
+      <div class="agg-item"><b>15–25 €</b><span>Preço médio por pessoa</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY STRIP ================= -->
+<div class="strip">
+  <div class="container strip__grid reveal">
+    <div class="ph ph--photo" role="img" aria-label="Carne grelhada com arroz de feijão frade e limão" style="background-image:url('images/strip1.jpg');background-position:center;"></div>
+    <div class="ph ph--photo" role="img" aria-label="Sopa de marisco com camarão e pão" style="background-image:url('images/strip2.jpg');background-position:center;"></div>
+  </div>
+</div>
+
+<!-- ================= LOCATION ================= -->
+<section class="location section" id="localizacao">
+  <svg class="watermark-tulip watermark-tulip--location"><use href="#ic-tulip"/></svg>
+  <div class="container location__grid">
+    <div class="location__info reveal">
+      <span class="eyebrow">Visite-nos</span>
+      <h2>Localização &amp; Horário</h2>
+
+      <div class="info-row">
+        <svg><use href="#ic-pin"/></svg>
+        <div>
+          <div class="info-row__label">Morada</div>
+          <div class="info-row__value">R. Antero de Quental 7<small>2670-412 Loures, Portugal</small></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <svg><use href="#ic-clock"/></svg>
+        <div style="width:100%">
+          <div class="info-row__label">Horário</div>
+          <table class="hours-table">
+            <tr><td>Terça — Sábado</td><td>12h00–15h30 · 19h00–22h30</td></tr>
+            <tr><td>Domingo</td><td>12h00–15h30</td></tr>
+            <tr><td>Segunda-feira</td><td>Encerrado</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="info-row">
+        <svg><use href="#ic-phone"/></svg>
+        <div>
+          <div class="info-row__label">Reservas</div>
+          <div class="info-row__value">966 892 884</div>
+        </div>
+      </div>
+
+      <div class="location__ctas">
+        <a href="tel:+351966892884" class="btn btn--dark">Ligar Agora</a>
+        <a href="https://www.instagram.com/tuliparestaurante__/" target="_blank" rel="noopener" class="btn" style="border:1.5px solid var(--line); color:var(--charcoal);">Ver Instagram</a>
+      </div>
+    </div>
+
+    <div class="location__map reveal">
+      <iframe
+        src="https://www.google.com/maps?q=R.+Antero+de+Quental+7,+2670-412+Loures,+Portugal&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa — Tulipa Restaurante, Loures">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<div class="divider-band">
+  <div class="divider reveal">
+    <span class="divider__line divider__line--l"></span>
+    <svg class="divider__icon"><use href="#ic-tulip"/></svg>
+    <span class="divider__line divider__line--r"></span>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <svg class="watermark-tulip watermark-tulip--footer"><use href="#ic-tulip"/></svg>
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand"><img src="images/logo.png" alt="Tulipa" class="brand-logo">Tulipa</div>
+        <p class="footer__desc">Restaurante familiar em Loures. Comida feita com amor, num ambiente vestido de flor a flor.</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/tuliparestaurante__/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#espaco">O Espaço</a></li>
+          <li><a href="#ementa">Ementa</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>R. Antero de Quental 7<br>2670-412 Loures</li>
+          <li><a href="tel:+351966892884">966 892 884</a></li>
+          <li>Ter–Sáb 12h–15h30 · 19h–22h30</li>
+          <li>Dom 12h–15h30</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> Tulipa Restaurante. Todos os direitos reservados.</span>
+      <span>Loures, Portugal</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+351966892884" class="fab" aria-label="Ligar para reservar"><svg><use href="#ic-phone"/></svg></a>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 40);
+  document.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  const navClose = document.getElementById('navClose');
+  navToggle.addEventListener('click', () => navMobile.classList.add('is-open'));
+  navClose.addEventListener('click', () => navMobile.classList.remove('is-open'));
+  navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('is-open')));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: .15 });
+  revealEls.forEach(el => io.observe(el));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
